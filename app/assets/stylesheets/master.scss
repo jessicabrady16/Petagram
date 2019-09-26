@@ -7,5 +7,6 @@ h1 {
 @include media-breakpoint-up(xl) {
   h1 {
     background-color: black;
+    color: white;
   }
 }
