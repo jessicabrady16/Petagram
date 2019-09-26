@@ -1,0 +1,11 @@
+@import 'bootstrap';
+
+h1 {
+  background-color: green;
+}
+
+@include media-breakpoint-up(xl) {
+  h1 {
+    background-color: black;
+  }
+}
