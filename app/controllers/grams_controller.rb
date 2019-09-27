@@ -1,7 +1,7 @@
-class GramsController < ApplicationController
+# frozen_string_literal: true
 
-  def index
-  end
+class GramsController < ApplicationController
+  def index; end
 
   def new
     @gram = Gram.new
@@ -9,7 +9,11 @@ class GramsController < ApplicationController
 
   def create
     @gram = Gram.create(gram_params)
-    redirect_to root_path
+    if @gram.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -17,5 +21,4 @@ class GramsController < ApplicationController
   def gram_params
     params.require(:gram).permit(:message)
   end
-
 end
