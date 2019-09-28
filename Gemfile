@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 gem 'devise'
 
+
 gem 'bootstrap', '~> 4.3'
 gem 'simple_form'
 # Use Redis adapter to run Action Cable in production
@@ -60,4 +61,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
+  gem "factory_bot_rails"
 end
