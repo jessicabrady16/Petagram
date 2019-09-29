@@ -8,6 +8,13 @@ class GramsController < ApplicationController
     @gram = Gram.new
   end
 
+  def edit
+    @gram = Gram.find_by_id(params[:id])
+    unless @gram
+      render plain: 'Not Found :(', status: :not_found
+    end
+  end
+
   def show
     @gram = Gram.find_by_id(params[:id])
     unless @gram
