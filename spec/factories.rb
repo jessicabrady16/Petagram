@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :comment do
-    
+    message { 'comments are cool' }
   end
 
   factory :user do

@@ -20,9 +20,9 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'carrierwave', '~> 2.0'
 gem 'devise'
+gem "figaro"
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
-gem "figaro"
 gem 'bootstrap', '~> 4.3'
 gem 'simple_form', '~> 5.0.0'
 gem "fog-aws"
