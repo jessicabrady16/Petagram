@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3'
 gem 'simple_form', '~> 5.0.0'
 gem "fog-aws"
+gem "mini_magick"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

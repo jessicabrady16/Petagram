@@ -1,12 +1,47 @@
-<h1>Grams!</h1>
+<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+<div class="card">
 
-<% @grams.each do |gram| %>
-<div>
-<%= image_tag gram.picture.url if gram.picture.present? %>
-  <%= gram.message %>
+<%= image_tag 'petagram.png', class: 'center-block'%>
 </div>
-<% end %>
-
-
-
-
+</div>
+<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+<div class="card">
+<%= link_to new_gram_path, class: 'pawplus' do %>
+<span><%= image_tag 'pawplus_sm.png' %>
+  Add a Petagram! </span>
+<% end%>
+</div>
+  <% @grams.each do |gram| %>
+    <div class="card">
+      <div class="handle"><%= gram.user.email %></div>
+      <%= image_tag gram.picture.url, class: 'img-fluid' if gram.picture.present? %>
+      <p>
+        <%= gram.message %>
+      </p>
+      <div class="gram-actions float-right">
+        <% if current_user && current_user == gram.user %>
+          <%= link_to 'Edit', edit_gram_path(gram) %>
+          <%= link_to 'Destroy', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'} %>
+        <% end %>
+      </div>
+      <div class="comments">
+        <h3 class= "underline">Comments</h3>
+        <% gram.comments.each do |comment| %>
+          <div class="comment">
+            <span class="comment_handle">
+              <%= comment.user.email %>
+            </span>
+            <%= comment.message %>
+            <hr />
+          </div>
+        <% end %>
+        <hr />
+        <h4 class= "underline">Add a comment</h4>
+        <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
+          <%= f.input :message %>
+          <%= f.submit 'Add Comment', class: 'my-btn' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

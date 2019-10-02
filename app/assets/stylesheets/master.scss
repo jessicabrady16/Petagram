@@ -1,12 +1,132 @@
 @import 'bootstrap';
 
-h1 {
-  background-color: green;
+body {
+  background-color: #fafafa;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.img-fluid {
+  object-fit: contain;
 }
 
-@include media-breakpoint-up(xl) {
-  h1 {
-    background-color: black;
-    color: white;
-  }
+.my-btn {
+  background-color: #125688;
+  width: 100%;
+  font-size: 24px;
+  color: white;
+  margin-top: 10px;
+}
+
+.top-nav {
+  background-color: white;
+  border-bottom-color: #edeeee;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  height: 70px;
+  padding-top: 15px;
+  margin-bottom: 15px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: .25rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #e8e8e8;
+  margin-top: 40px;
+  padding: 0;
+}
+
+.card p, .card .message {
+  font-size: 18px;
+  margin: 20px;
+}
+
+label {
+  font-size: 18px;
+}
+
+input {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.card.form {
+  padding: 20px;
+}
+
+.handle {
+  margin: 10px;
+  color: #125688;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.top-nav .add {
+  margin-top: 10px;
+}
+
+.top-nav .add a {
+  font-weight: bold;
+  color: #125688;
+  font-size: 16px;
+  padding-left: 8px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+.center-block {
+  padding-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.brand {
+  color: #125688;
+  font-size: 30px;
+  font-family: 'Pacifico', cursive;
+}
+.brand a:hover {
+  text-decoration: none;
+}
+
+.input.boolean {
+  margin-left: 18px;
+  margin-top: 5px;
+}
+
+.comments {
+  padding: 40px;
+}
+
+.comment {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.pawplus {
+  padding: 20px;
+  display: block;
+  font-size: 30px;
+}
+.comment_handle {
+  color: #125688;
+  font-weight: bold;
+  font-size: 18px;
+}
+.gram-actions a {
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-left: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #125688;
+  padding: 5px;
+}
+
+.input.boolean label {
+  margin-top: 5px;
+  line-height: 44px;
 }
