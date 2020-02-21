@@ -10,8 +10,8 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.0'
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.13'
-gem 'bootsnap', '>= 1.4.2', require: false
-gem 'bootstrap', '~> 4.3', require: false
+gem 'bootsnap', '>= 1.4.2'
+gem 'bootstrap', '~> 4.3'
 
 gem 'carrierwave', '~> 2.1'
 
