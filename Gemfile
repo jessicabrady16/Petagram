@@ -28,7 +28,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'pwa', '~> 4.0.4'
 
 gem "rack", ">= 2.0.8"
