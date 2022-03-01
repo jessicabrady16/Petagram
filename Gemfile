@@ -20,7 +20,7 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'fog-aws', '~> 3.5', '>= 3.5.2'
 
-gem 'image_processing', '~> 1.10', '>= 1.10.3'
+gem 'image_processing', '~> 1.12'
 
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
