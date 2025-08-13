@@ -88,6 +88,9 @@ make dev
 
 ## 🛠 Dev Utilities
 
+### `bin/rbenv-clean.sh`
+Cleans old rbenv Ruby versions to save disk space.
+
 ### [`bin/rbenv-clean.sh`](./bin/rbenv-clean.sh)
 Removes old Ruby versions installed by rbenv to save disk space.
 
@@ -102,7 +105,21 @@ bin/rbenv-clean.sh --dry-run
 bin/rbenv-clean.sh --keep 3.3.9
 ```
 
----
+### `bin/dev`
+Convenience script for starting Rails and Webpack Dev Server together via Foreman.
+
+```
+bin/dev
+```
+
+### `Procfile.dev`
+Used by Foreman to start development processes.
+
+Example:
+```
+web: bin/rails server -p 3000
+js: bin/webpack-dev-server
+```
 
 ## 📜 Production Deployment
 
