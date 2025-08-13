@@ -2,10 +2,14 @@
 
 # Fabulous Shiny Gems!
 
+# Require Bundler 2.7.1 or newer
+BUNDLER_VERSION = Gem::Version.new(Bundler::VERSION)
+MIN_BUNDLER = Gem::Version.new('2.7.1')
+abort "Bundler #{MIN_BUNDLER} or newer is required. You have #{BUNDLER_VERSION}." if BUNDLER_VERSION < MIN_BUNDLER
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.3.9'
 
 gem 'rails', '~> 6.0.0'
 
