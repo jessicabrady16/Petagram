@@ -1,82 +1,185 @@
 # Petagram
 
-An app designed to showcase and share pictures of your pets with your friends and family. 
+An app to showcase and share pictures of your pets with friends and family.  
+Originally built as a learning project for Ruby on Rails — now polished to demonstrate a modern, efficient dev workflow.
 
-This app powers Petagram located on Heroku at https://dashboard.heroku.com/apps/pet-a-gram-your-pets-pic-place
+Live (Heroku): [Petagram](https://dashboard.heroku.com/apps/pet-a-gram-your-pets-pic-place)
 
-## Getting Started
+---
 
-## Software requirements
+## 📦 Tech Stack
 
-- Rails 6.0.0 or higher
+- **Rails** 6.x
+- **Ruby** 3.3.9 (via rbenv)
+- **PostgreSQL** 11.x or newer
+- **Webpacker** for asset bundling (JS/CSS)
 
-- Ruby 2.3.1 or higher
+---
 
-- PostgreSQL 9.5.x or higher
+## ✨ Features
 
-## Navigate to the Rails application
+- User authentication and profiles
+- Post photos of pets with captions
+- Comment on and like pet posts
+- Responsive layout for desktop and mobile
+- Live asset reloading during development
+- Easy one-command dev environment
 
-```
-$ cd /path/to/rails/application
-```
+---
 
-## Software requirements
+## 🚀 Getting Started
 
-- Rails 6.0.0 or higher
+### 1. Prerequisites
 
-- Ruby 2.6.3 or higher
+- Ruby ≥ 3.3.9 installed with [rbenv](https://github.com/rbenv/rbenv)
+- PostgreSQL ≥ 11.x
+- Node.js + Yarn or npm
+- Foreman (`gem install foreman`)
 
-- PostgreSQL 11.5.x or higher
+### 2. Clone the repo
 
-## Navigate to the Rails application
-
-```
-$ cd /path/to/rails/application
-```
-
-Note:  You may need to edit the above files as necessary for your system.
-
-## Create the database
-
- ```
- $ sudo service postgresql start  
- $ rails db:create
- ```
-
-## Migrating and seeding the database
-
-```
-$ rake db:migrate
-$ rake db:seed
+```bash
+git clone https://github.com/jessicabrady16/Petagram.git
+cd Petagram
 ```
 
-## Starting the local server
+### 3. Install dependencies
 
+```bash
+# Ruby gems
+bundle install
+
+# JS packages
+yarn install   # or: npm install
 ```
-$ rails server
 
-   or
+### 4. Setup the database
 
-$ rails s
+```bash
+rails db:create
+rails db:migrate
+rails db:seed
 ```
 
-## Production Deployment
+---
 
-  ```
-  $ git push heroku master
-  $ heroku run rake db:migrate
-  ```
+## 💻 Development
 
-## Support
+### The easy way (all-in-one dev stack)
 
-Bug reports and feature requests can be filed here:
+This project includes a [`Procfile.dev`](./Procfile.dev) and [`bin/dev`](./bin/dev) script to launch **Rails** and **Webpack** together.
 
-* [File Bug Reports and Features](https://github.com/jessicabrady16/Petagram/issues)
+```bash
+bin/dev
+```
 
-## License
+Or with Make:
 
-Petagram is released under the [MIT license](https://mit-license.org).
+```bash
+make dev
+```
 
-## Copyright
+**Under the hood:**  
+- `web:` process runs Rails (`bin/rails server`)  
+- `webpack:` process runs the Webpacker dev server (`bin/webpack-dev-server`)  
+- Foreman handles both processes in one terminal with prefixed logs.
 
-copyright:: (c) Copyright 2020 Jessica Brady. All Rights Reserved.
+---
+
+## 🛠 Dev Utilities
+
+### [`bin/rbenv-clean.sh`](./bin/rbenv-clean.sh)
+Removes old Ruby versions installed by rbenv to save disk space.
+
+```bash
+# Keep current global
+bin/rbenv-clean.sh
+
+# Preview without deleting
+bin/rbenv-clean.sh --dry-run
+
+# Keep a specific version
+bin/rbenv-clean.sh --keep 3.3.9
+```
+
+---
+
+## 📜 Production Deployment
+
+```bash
+git push heroku master
+heroku run rails db:migrate
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Here’s how to get started:
+
+1. Fork the repository.
+2. Create a new feature branch:
+   ```bash
+   git checkout -b feature/my-feature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add my feature"
+   ```
+4. Push to your fork:
+   ```bash
+   git push origin feature/my-feature
+   ```
+5. Open a Pull Request and describe your changes.
+
+When contributing, please:
+- Follow existing code style.
+- Write descriptive commit messages.
+- Test your changes locally before submitting.
+
+---
+
+## 🐞 Support
+
+Bug reports and feature requests: [GitHub Issues](https://github.com/jessicabrady16/Petagram/issues)
+
+---
+
+## 📄 License
+
+Released under the [MIT license](https://mit-license.org).
+
+© 2020–2025 Jessica Brady. All Rights Reserved.
+
+---
+
+## 🖼 Architecture & Workflow
+
+```text
++------------------+        +-----------------------+
+|  Developer CLI   |        |   Foreman (Procfile)   |
+|                  |        |  Runs processes in    |
+|  make dev /       +------->  parallel with logs    |
+|  bin/dev         |        |                       |
++------------------+        +-----------+-----------+
+                                         |
+                +------------------------+------------------------+
+                |                                                 |
+      +---------v---------+                             +---------v---------+
+      | Rails Backend     |                             | Webpacker Dev     |
+      | (bin/rails s)     |                             | Server            |
+      | Serves HTML/JSON  |                             | Rebuilds JS/CSS   |
+      +---------+---------+                             +---------+---------+
+                |                                                 |
+        +-------v-------+                                 +-------v-------+
+        | PostgreSQL    |                                 | Browser       |
+        | Data Storage  |                                 | Live-reloaded |
+        +---------------+                                 +---------------+
+```
+
+**Flow:**  
+1. You run `make dev` or `bin/dev`.  
+2. Foreman starts **Rails** and **Webpacker** together.  
+3. Rails serves backend requests, Webpacker rebuilds frontend assets in real time.  
+4. PostgreSQL stores and retrieves your data.  
+5. The browser auto-refreshes changes via Webpacker’s live-reload.
