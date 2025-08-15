@@ -1,16 +1,11 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/usr/bin/env sh
 
-PROCFILE="${PROCFILE:-Procfile.dev}"
-
-if command -v overmind >/dev/null 2>&1; then
-  exec overmind start -f "$PROCFILE"
-elif command -v foreman >/dev/null 2>&1; then
-  exec foreman start -f "$PROCFILE"
-else
-  echo "Install a Procfile runner:"
-  echo "  gem install foreman   # simplest"
-  echo "or:"
-  echo "  brew install overmind # if you use Homebrew on WSL"
-  exit 1
+if gem list --no-installed --exact --silent foreman; then
+  echo "Installing foreman..."
+  gem install foreman
 fi
+
+# Default to port 3000 if not specified
+export PORT="${PORT:-3000}"
+
+exec foreman start -f Procfile.dev --env /dev/null "$@"
