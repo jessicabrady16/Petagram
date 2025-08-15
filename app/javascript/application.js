@@ -1,1 +1,3 @@
-// Entry point for the build script in your package.json
+// app/javascript/application.js
+import * as bootstrap from "bootstrap"
+// …your other imports
