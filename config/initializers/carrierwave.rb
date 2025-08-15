@@ -16,3 +16,9 @@ if Rails.env.production?
     config.fog_public     = true
   end
 end
+
+if Rails.env.development? || Rails.env.test?
+  CarrierWave.configure do |config|
+    config.storage = :file
+  end 
+end 
