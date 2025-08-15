@@ -1,7 +1,7 @@
 /* app/assets/stylesheets/application.scss */
 
 /* Bootstrap first */
-@use "bootstrap/scss/bootstrap";
+@use "bootstrap/dist/css/bootstrap.css"; // prebuilt, no SCSS processing
 
 /* Your legacy styles — import them explicitly.
    Replace these with the real partials you have. */

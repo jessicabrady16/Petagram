@@ -1,3 +1,3 @@
 // app/javascript/application.js
-import "bootstrap"
+import * as bootstrap from "bootstrap"
 // …your other imports
