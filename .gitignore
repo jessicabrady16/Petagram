@@ -32,3 +32,26 @@ yarn-debug.log*
 
 # Ignore application configuration
 /config/application.yml
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+# Bundler-installed gems
+/vendor/bundle/
+.bundle/
+
+# Node lock from npm (we use yarn)
+/package-lock.json
+
+# Compiled artifacts (already have builds/, keep here for clarity)
+/public/assets
+
+# Env & local overrides
+.env
+.env.*
+/.ruby-version.local
+
+# IDE/OS noise
+/.idea/
+/.vscode/
+.DS_Store
