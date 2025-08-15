@@ -1,0 +1,9 @@
+/* app/assets/stylesheets/application.scss */
+
+/* Bootstrap first */
+@use "bootstrap/scss/bootstrap";
+
+/* Your legacy styles — import them explicitly.
+   Replace these with the real partials you have. */
+@use "base"; // e.g. app/assets/stylesheets/_base.scss
+
