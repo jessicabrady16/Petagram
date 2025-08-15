@@ -8,11 +8,11 @@ if Rails.env.production?
 
     config.fog_credentials = {
       provider:              'AWS',
-      aws_access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID', nil),
-      aws_secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY', nil),
+      aws_access_key_id:     ENV['AWS_ACCESS_KEY_ID'] || ENV['AWS_ACCESS_KEY'],
+      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] || ENV['AWS_SECRET_KEY'],
       region:                ENV.fetch('AWS_REGION', nil)
     }
-    config.fog_directory  = ENV.fetch('S3_BUCKET', nil)
+    config.fog_directory  = ENV['S3_BUCKET'] || ENV['AWS_BUCKET']
     config.fog_public     = true
   end
 end

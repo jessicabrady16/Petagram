@@ -88,9 +88,6 @@ make dev
 
 ## 🛠 Dev Utilities
 
-### `bin/rbenv-clean.sh`
-Cleans old rbenv Ruby versions to save disk space.
-
 ### [`bin/rbenv-clean.sh`](./bin/rbenv-clean.sh)
 Removes old Ruby versions installed by rbenv to save disk space.
 

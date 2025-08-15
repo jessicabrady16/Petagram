@@ -1,5 +1,3 @@
-cat > Procfile.dev <<'EOF'
 web: bin/rails server -b 127.0.0.1 -p 3000
 js:  yarn build --watch
 css: yarn build:css --watch
-EOF
